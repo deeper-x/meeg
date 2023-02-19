@@ -1,19 +1,16 @@
 package main
 
 import (
-	"database/sql"
-	"log"
-
 	_ "github.com/mattn/go-sqlite3"
 )
 
 func main() {
-	db, err := sql.Open("sqlite3", "migrations.db")
-	if err != nil {
-		panic(err)
-	}
+	// db, err := sql.Open("sqlite3", "migrations.db")
+	// if err != nil {
+	// 	panic(err)
+	// }
 
-	defer db.Close()
+	// defer db.Close()
 
 	// ########################
 	// DDL
@@ -56,24 +53,24 @@ func main() {
 	// #########################
 	// FETCHING DATA
 
-	stmt, err := db.Prepare("SELECT rowid, name FROM demo WHERE rowid = ?")
-	if err != nil {
-		panic(err)
-	}
+	// stmt, err := db.Prepare("SELECT rowid, name FROM demo WHERE rowid = ?")
+	// if err != nil {
+	// 	panic(err)
+	// }
 
-	defer stmt.Close()
+	// defer stmt.Close()
 
-	var id int
-	var name string
+	// var id int
+	// var name string
 
-	err = stmt.QueryRow("1").Scan(
-		&id,
-		&name,
-	)
+	// err = stmt.QueryRow("1").Scan(
+	// 	&id,
+	// 	&name,
+	// )
 
-	if err != nil {
-		panic(err)
-	}
+	// if err != nil {
+	// 	panic(err)
+	// }
 
-	log.Println(id, name)
+	// log.Println(id, name)
 }
